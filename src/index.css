@@ -1,13 +1,125 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    font-family: 'Lora', serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    background-color: #fff7eb;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+    font-size: 2.25rem;
+    line-height: 2.25rem;
+    color: rgb(172 136 190);
+}
+
+h2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 300;
+}
+
+p {
+    font-size: 12px;
+}
+
+.form {
+    border: 1px solid black;
+    align-items: left;
+    margin: 10px;
+}
+.form-field {
+    display: block;
+    margin: 10px 0;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;  
+    font-size: 0.8rem;
+
+}
+
+.button {
+    background-color: rgb(172 136 190);
+    padding: 10px;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 300;
+    border-radius: 3px;
+}
+
+.button-edit, .button-delete {
+    background-color: rgb(172 136 190);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 300;
+    border-radius: 3px;
+}
+
+.button-delete {
+    background-color: white;
+    color:  rgb(172 136 190);
+    border: 1px solid rgb(172 136 190);
+}
+
+.order-list-container {
+    overflow-y: scroll;
+}
+
+.order-list {
+    border: 1px solid black;
+    margin-left: 10px;
+}
+
+.order-list p{
+   text-align: left;
+    margin-bottom: 5px;
+}
+
+.error {
+    text-align: center;
+    border: 1px solid red;
+    padding: 10px;
+    font-size: 12px;
+}
+
+
+@media (max-width: 768px) {
+    body {
+
+    }
+
+    .title {
+        font-size: 1.25rem;
+        line-height: 1.25rem;
+        margin: 1rem
+    }
+
+    .sections {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .order-list-container, .form-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    /* .order-list-container {
+        min-height: 100vh;
+    } */
 }

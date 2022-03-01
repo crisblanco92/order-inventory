@@ -6,7 +6,8 @@ body {
     font-family: 'Lora', serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-    background-color: #fff7eb;
+    /* background-color: #fff7eb; */
+    background-color: white;
 }
 
 h1 {
@@ -41,7 +42,7 @@ p {
     width: 100%;
     padding: 10px;  
     font-size: 0.8rem;
-
+    background-color: ghostwhite
 }
 
 .button {

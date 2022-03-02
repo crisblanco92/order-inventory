@@ -2,12 +2,7 @@
 
 const Order = ({oneOrder, setSingleOrder, deleteOrder}) => {
 
-  // useEffect(() => {
-  //   console.log('el componente esta listo (Order)') //este no se va a imprimir al cargar la pag sin orders, sino al añadir el primer order, que es cuando
-  //   //este componente entra en uso
-  // }, [])
-
-  const {name, product, email, date, comment, id} = oneOrder //el id en este caso solo lo utilizare para identificar el order que quiero borrar
+  const {name, product, email, date, comment, id} = oneOrder 
 
   const handleDelete = () => {
     //console.log('eliminando ', id)
@@ -43,10 +38,7 @@ const Order = ({oneOrder, setSingleOrder, deleteOrder}) => {
           <button 
             type="button"
             className="button-edit mr-3 text-center"
-            //cuando demos click, se va a rellenar el objeto de singleOrder con la info q traemos del padre
             onClick={()=> setSingleOrder(oneOrder)}
-            //funcion callback porque este STATE tiene que rellenarse al hacer este click
-            //no al crear el objeto en si 
           >
 
 
@@ -55,7 +47,7 @@ const Order = ({oneOrder, setSingleOrder, deleteOrder}) => {
             type="button"
             className="button-delete text-center"
             //onClick={() => deleteOrder(id)}
-            onClick={handleDelete} //para que espere a que ocurra el evento, declarar arriba, NO ()
+            onClick={handleDelete}
             >
             
 

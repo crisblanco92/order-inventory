@@ -11,22 +11,15 @@ const Form = ({order, setOrder, singleOrder, setSingleOrder}) => {
 
   const [error, setError] = useState(false)
 
-  useEffect(() => { //sirve para escuchar los cambios que sucedan
-    if (Object.keys(singleOrder).length > 0) { //comprobar si el objeto esta vacio, devuelve true false
-      setName(singleOrder.name) //lee cambios en el objeto de singleOrder, detecta que no esta vacio, 
-      //y modifica el state con los datos de ese objeto que hemos activado una vez hago click en EDIT
+  useEffect(() => { 
+    if (Object.keys(singleOrder).length > 0) { 
+      setName(singleOrder.name) 
       setProduct(singleOrder.product)
       setEmail(singleOrder.email)
       setDate(singleOrder.date)
       setComment(singleOrder.comment)
     } 
-  }, [singleOrder]) //en este array vacio van las dependencias, lo que se coloque aqui va a ser el valor que react revise cuando cambie (al editar), y si cambia realiza un re render 
-  //se ejecutara cada vez que singleOrder cambie, en este caso
-
-  //puede haber varios useEffect para varias cosas
-  // useEffect(() => {
-  //   console.log('el componente esta listo (Form)') //cuando el componente se ha cargado, es decir, esta en uso
-  // }, [])
+  }, [singleOrder]) 
 
   const generateId= () => {
     const random = Math.random().toString(36).substr(2)
@@ -55,32 +48,24 @@ const Form = ({order, setOrder, singleOrder, setSingleOrder}) => {
       email, 
       date, 
       comment,
-      // id: generateId() muevo este generador de ir al nuevo registro que creo mas abajo
+      // id: generateId()
     }
-    // console.log(orderObject)
-    // colocar objeto en el state, haciendo una copia de lo q ya hay, no reescribiendo: COGER LO QUE HAY EN EL STATE,
-    // COPIARLO Y AGREGARLO COMO UN NUEVO OBJETO DE ORDER
     
     if (singleOrder.id) {
       //editando el registro
       orderObject.id = singleOrder.id
 
-      //creamos una nueva variable (para almacenar un nuevo array). Iteramos sobre todos los orders, creando la variable temporal de orderState para hacer ref a l que esta en el state 1,
-      //entonces vamos a leer del state, e identificar que registro estamos editando. 
-      // SI el ID DE singleOrderState === AL ID DE  singleOrder, ENTONCES DEVUELVO EL OBJETO ACTUALIZADO DE orderObject (YA CON ID), en caso contrario DEVUELVO EL
-      //OBJETO COMO ESTA, SIN MODIFICARSE
       const updatedOrders = order.map(singleOrderState => singleOrderState.id === singleOrder.id ? orderObject : singleOrderState)
-      //le pasamos el array nuevo que devuelve el .map
       setOrder(updatedOrders)
-      setSingleOrder({}) //limpia el STATE que se rellena al hacer click en editar un order
+      setSingleOrder({}) 
 
     } else {
       //nuevo registro
-      orderObject.id = generateId() //si no cumple con la condicion de tener ID, se viene al  else, y antes de almacenarlo en el STATE, se le generara in ID unico)
+      orderObject.id = generateId() 
       setOrder([...order, orderObject]);
     }
 
-    //reiniciar form. esto sucede porque los VALUE estan asociados a los name, product, email...
+    //reiniciar form.
     setName('')
     setProduct('')
     setEmail('')
@@ -99,7 +84,6 @@ const Form = ({order, setOrder, singleOrder, setSingleOrder}) => {
         onSubmit={handleSubmit}
         className="form mt-5 px-10 py-10"
         >
-        {/* pasarle "children" como prop al componente hijo Error permite pasar mucho contenido html, no solo 1 prop, que terminaria siendo muchas props */}
         {error && 
           <Error className="error">
             All fields are mandatory
